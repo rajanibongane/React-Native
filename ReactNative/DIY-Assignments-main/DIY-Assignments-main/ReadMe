@@ -1,0 +1,83 @@
+1. Do npm install
+2. npm run dev
+
+   2.1 if got mongodb error even if you have mongodb then go to .env file and changed
+   DATABASE_URL='mongodb://localhost:27017/assignment' with DATABASE_URL='mongodb://127.0.0.1:27017/assignment'
+
+   2.2 If you are using react native then do a call using using laptop ip address
+   like here we use "http://localhost:8000/api/employees/login" instead use "http://192.168.X.X:8000/api/employees/" where X.X are IP of your PC
+
+3. Login API call (Public)
+   Post API: "http://localhost:8000/api/employees/login"
+   Data:{
+   "email":"saurabh@demo.com",
+   "password":"Saurabh@123"
+   }
+
+4. Get all employees (Private)
+   Get API:"http://localhost:8000/api/employees/"
+
+5. Get single employee (Private)
+   Get API:"http://localhost:8000/api/employees/empId"
+   GET API:"http://localhost:8000/api/employee/empId?month=3&year=2023"
+
+6. Get Meal of an employee (Private)
+   Get: API:"http://localhost:8000/api/meal/empId"
+
+7. Get menus (Private)
+   Get API: "http://localhost:8000/api/menu/filter"
+   Get API: "http://localhost:8000/api/menu/filter?filterType=week"
+   Get API: "http://localhost:8000/api/menu/filter?filterType=month"
+   Get API: "http://localhost:8000/api/menu/filter?filterType=year"
+   Get API: "http://localhost:8000/api/menu/filter?filterType=2023-09-17"
+   To get menus for a specific date (e.g., "2023-09-17"):
+
+8. Post new Employee (Private)
+   Post API:"http://localhost:8000/api/employees/"
+   Data:{
+   "name":"Saurabh",
+   "empId":"OPC001",
+   "password":"Saurabh@123",
+   "email":"saurabh@demo.com",
+   "meal":{
+   "lunch": ["2023-09-14"],
+   "breakfast": ["2023-09-13"]
+   }
+   }
+
+9. Post Add Meal of an employee (Private)
+   Post API:"http://localhost:8000/api/meal/empId"
+   Data:{
+   "lunch": ["2023-09-15"],
+   "breakfast": ["2023-09-15"]
+   }
+
+10. Post Add Menu (Private)
+    Post API:"http://localhost:8000/api/menu/",
+    Data:[
+    {
+    "day": "Monday",
+    "dishName": {
+    "Breakfast": "Menu 1",
+    "Lunch": "Menu 2"
+    },
+    "date": "2023-09-18"
+    },
+    {
+    "day": "Tuesday",
+    "dishName": {
+    "Breakfast": "Menu 3",
+    "Lunch": "Menu 4"
+    },
+    "date": "2023-09-19"
+    }
+    ]
+
+11. Logout API call (Private)
+    Post API: "http://localhost:8000/api/employees/logout"
+    Data:{}
+
+NOTE if API is Private you need to pass AccessToken
+
+how add AccessToken
+pass Bearer Token : which you will get from login
